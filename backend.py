@@ -19,8 +19,7 @@ for diary in diaries:
 analyzer = SentimentIntensityAnalyzer()
 
 # Analyse the content of each files
-for text in d:
-    score = analyzer.polarity_scores(text)
-    print(score)
+score = [analyzer.polarity_scores(text) for text in d]
 
+print(score)
 
