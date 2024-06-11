@@ -1,10 +1,5 @@
 import glob
-from typing import List
-
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-import streamlit as st
-import plotly.express as px
-
 
 # Get list of files
 diaries = glob.glob("diary/*.txt")
