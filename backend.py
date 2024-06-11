@@ -1,9 +1,17 @@
 import glob
-import re
+from typing import List
+
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+import streamlit as st
+import plotly.express as px
+
 
 # Get list of files
 diaries = glob.glob("diary/*.txt")
+
+# Extract dates from names' files
+date = [dates.removeprefix(f"diary\\").removesuffix(".txt") for dates in diaries]
+
 
 # Create an empty list where to put the content of the files
 d = []
@@ -21,5 +29,10 @@ analyzer = SentimentIntensityAnalyzer()
 # Analyse the content of each files
 score = [analyzer.polarity_scores(text) for text in d]
 
-print(score)
+# Extract the positivity and negativity scores from the dictionary in the list score
+positivity = [dict["pos"] for dict in score]
+negativity = [dict["neg"] for dict in score]
+
+print(date)
+print(positivity)
 
