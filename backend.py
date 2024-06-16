@@ -30,4 +30,4 @@ negativity = [dict["neg"] for dict in score]
 
 print(date)
 print(positivity)
-
+print(negativity)
